@@ -132,3 +132,7 @@ LOGOUT_REDIRECT_URL = '/'  # Redirige a la página principal después de cerrar 
 STATICFILES_DIRS = [
     BASE_DIR / "stock/static",  # Asegúrate de que esta línea esté aquí
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Usar el backend de autenticación predeterminado
+]
