@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
+from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "stock",
 ]
 
 MIDDLEWARE = [
@@ -51,11 +53,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'App_Stock.urls'
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Aquí puedes añadir otras rutas si lo necesitas
+        'APP_DIRS': True,  # Asegúrate de que esta opción esté habilitada
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -121,3 +125,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# proyecto_principal/settings.py
+LOGIN_REDIRECT_URL = '/'  # Redirige a la página principal después de iniciar sesión
+LOGOUT_REDIRECT_URL = '/'  # Redirige a la página principal después de cerrar sesión
+
+STATICFILES_DIRS = [
+    BASE_DIR / "stock/static",  # Asegúrate de que esta línea esté aquí
+]

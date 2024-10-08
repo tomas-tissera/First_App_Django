@@ -1,0 +1,21 @@
+<!-- stock/templates/stock/lista_productos.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Productos</h1>
+<ul>
+    {% for producto in productos %}
+        <li>{{ producto.nombre }} - {{ producto.precio }}
+            {% if perms.stock.change_producto %}
+                <a href="{% url 'editar_producto' producto.id %}">Editar</a>
+            {% endif %}
+            {% if perms.stock.delete_producto %}
+                <a href="{% url 'eliminar_producto' producto.id %}">Eliminar</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% if perms.stock.add_producto %}
+    <a href="{% url 'agregar_producto' %}">Agregar Nuevo Producto</a>
+{% endif %}
+{% endblock %}

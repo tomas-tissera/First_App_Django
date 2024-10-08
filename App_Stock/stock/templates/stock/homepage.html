@@ -1,0 +1,18 @@
+<!-- stock/templates/stock/homepage.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'stock/styles.css' %}">
+</head>
+<body>
+    <div class="homepage">
+        <h1>Bienvenido a la aplicación de stock</h1>
+        <p><a href="{% url 'login' %}">Iniciar sesión</a></p>
+    </div>
+</body>
+</html>

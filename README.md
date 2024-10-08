@@ -2,6 +2,8 @@
 dar permisos a entorno :
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
+desactivar:deactivate
+
 Características:
 Autenticación de usuarios y control de acceso basado en roles (administrador, gerente, empleado).
 CRUD de productos, categorías y proveedores.
